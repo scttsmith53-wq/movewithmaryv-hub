@@ -94,7 +94,7 @@ export default function LoginPage() {
     <main className="relative grid min-h-screen place-items-center overflow-hidden bg-grid bg-brand-grid p-5">
       <section className="relative w-full max-w-6xl overflow-hidden rounded-[2rem] bg-[#061426] text-white shadow-card lg:grid lg:grid-cols-[1.05fr_.95fr]">
         <div className="p-7 sm:p-12">
-          <div className="mb-10 inline-flex items-center gap-3 rounded-full border border-gold/30 bg-gold/10 px-4 py-2 text-sm font-black text-gold">
+          <div className="mb-6 flex w-fit items-center gap-3 rounded-full border border-gold/30 bg-gold/10 px-4 py-2 text-sm font-black text-gold">
             <ShieldCheck size={18} /> Private Homebuyer Portal
           </div>
           <p className="kicker mb-5 text-white after:bg-gold">
