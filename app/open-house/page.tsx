@@ -107,8 +107,8 @@ function OpenHouseForm() {
           looking for. Save my info so you can reach me anytime.
         </p>
         <a
-          href="/scott-smith.vcf"
-          download="Scott-Smith.vcf"
+          href="/mary-vega.vcf"
+          download="Mary-Vega.vcf"
           className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-6 py-3.5 text-sm font-bold uppercase tracking-[.08em] text-[#101415]"
         >
           📇 Save my contact card

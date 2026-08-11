@@ -31,13 +31,16 @@ export default function AboutPage() {
         <div className="card-light p-7 sm:p-9">
           <p className="kicker mb-5">Your Guide</p>
           <h2 className="brand-serif text-4xl font-black leading-tight text-[#061426]">Mary Vega</h2>
-          <p className="mt-2 text-sm font-black uppercase tracking-[.18em] text-[#8a6218]">Real Estate Agent | Mortgage Loan Officer</p>
+          <p className="mt-2 text-sm font-black uppercase tracking-[.18em] text-[#8a6218]">REALTOR® · Keller Williams · West Valley, Arizona</p>
           <div className="my-6 h-px w-32 bg-gold" />
           <p className="text-base leading-8 text-[#465668]">
-            My role is to help buyers understand the steps, tools, and options available so they can make better decisions. The goal is not to rush you. The goal is to help you know what questions to ask, what to prepare, and what to do next.
+            I built my business around the two things clients tell me matter most: real education and clear, honest communication. When you understand the market and always know exactly where your transaction stands, the whole process gets less stressful and the decisions get easier. That is the experience I work to give every client, every time.
           </p>
           <p className="mt-5 text-base leading-8 text-[#465668]">
-            Move With Mary V brings together the webinar, roadmap, calculators, credit tools, document guides, and strategy call access in one organized place.
+            With deep knowledge of the West Valley and a strong track record of getting clients to their goals, I keep your best interest at the center of every move. Real estate has a lot of moving parts, and the small details are where deals are won or lost. My job is to handle the intricacies, keep you informed with up-to-date information, and communicate clearly at every step &mdash; so you can stay focused on your goals instead of the guesswork.
+          </p>
+          <p className="mt-5 text-base leading-8 text-[#465668]">
+            Whether you are buying your first home, moving up, or selling, I am here for all of your real estate needs.
           </p>
           <a href={bookingUrl} className="btn-primary mt-7">Book a Strategy Call <ArrowRight size={18}/></a>
         </div>

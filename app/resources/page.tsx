@@ -1,38 +1,51 @@
 import Shell from "@/components/Shell";
 import PageHeader from "@/components/PageHeader";
-import EventLink from "@/components/EventLink";
-import { bookingUrl, agentName, agentArea } from "@/lib/content";
-import { BookOpen, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { resources, resourceCategories } from "@/lib/resources";
+import { agentArea } from "@/lib/content";
+import { ArrowRight } from "lucide-react";
 
-// Resource library is intentionally empty for now. The prior guides were
-// co-branded to another brokerage; Mary's own Keller Williams / co-branded
-// resources will be added here. Do not surface another brand's PDFs.
 export default function ResourcesPage() {
   return (
     <Shell>
-      <PageHeader eyebrow="Resource Library" title="Guides coming soon">
-        {agentName} is putting together a co-branded set of homebuyer and seller guides for {agentArea}.
-        They&rsquo;ll live here shortly.
+      <PageHeader eyebrow="Resource Library" title="Homebuyer guides & planners">
+        Co-branded guides for buyers in {agentArea} — from your first steps through closing day.
+        Read them online or download to keep.
       </PageHeader>
 
-      <section className="card p-8 text-center sm:p-12">
-        <div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-2xl border border-gold/30 bg-gold/10 text-gold">
-          <BookOpen size={26} />
-        </div>
-        <h2 className="font-serif text-2xl font-bold text-white">New resources on the way</h2>
-        <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-ice/65">
-          Want something specific in the meantime? Book a quick strategy call and {agentName} will get you
-          exactly what you need for your move.
-        </p>
-        <EventLink
-          href={bookingUrl}
-          eventType="RESOURCES_STRATEGY_CALL_CLICKED"
-          eventValue="resources_placeholder"
-          className="btn-primary mt-6 inline-flex"
-        >
-          Book a Strategy Call <ArrowRight size={18} />
-        </EventLink>
-      </section>
+      {resourceCategories.map((category) => (
+        <section key={category} className="mb-9">
+          <h2 className="mb-4 font-serif text-2xl font-black text-white">{category}</h2>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {resources
+              .filter((r) => r.category === category)
+              .map((r) => (
+                <Link
+                  key={r.slug}
+                  href={`/resources/${r.slug}`}
+                  className="group card overflow-hidden p-0 transition hover:-translate-y-0.5"
+                >
+                  <div className="aspect-[4/3] w-full overflow-hidden border-b border-gold/15 bg-[#061426]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={r.cover}
+                      alt={r.title}
+                      className="h-full w-full object-cover object-top"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <p className="kicker mb-2 text-gold">{r.stage}</p>
+                    <h3 className="font-serif text-xl font-black leading-snug text-white">{r.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-ice/65">{r.description}</p>
+                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-gold">
+                      Open guide <ArrowRight size={16} className="transition group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </Link>
+              ))}
+          </div>
+        </section>
+      ))}
     </Shell>
   );
 }

@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Vega;Mary;;;
+FN:Mary Vega
+ORG:Keller Williams
+TITLE:REALTOR®
+TEL;TYPE=CELL,VOICE:+16235704245
+URL:https://movewithmaryv.com
+ADR;TYPE=WORK:;;;West Valley;AZ;;USA
+NOTE:REALTOR® serving West Valley, Arizona.
+END:VCARD

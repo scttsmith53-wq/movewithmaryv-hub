@@ -1,7 +1,7 @@
 // Hardcoded to the same working calendar the landing pages use (env override removed
 // so a stale NEXT_PUBLIC_BOOKING_URL can't point the portal at a dead calendar).
-export const bookingUrl = 'https://api.leadconnectorhq.com/widget/booking/U3kW2nB0a5VMixUVbfUN';
-export const registrationUrl = process.env.NEXT_PUBLIC_WEBINAR_REGISTRATION_URL || 'https://smithapprovesme.com';
+export const bookingUrl = 'https://api.leadconnectorhq.com/widget/booking/ZanIHTWoRm48NxZzqaWw';
+export const registrationUrl = process.env.NEXT_PUBLIC_WEBINAR_REGISTRATION_URL || 'https://movewithmaryv.com';
 export const webinarJoinUrl = process.env.NEXT_PUBLIC_WEBINAR_JOIN_URL || '/webinar';
 // Embedded live stream so members watch inside the portal (keeps them logged in
 // for attendance tracking). For an evergreen weekly YouTube live, use the
@@ -11,31 +11,25 @@ export const webinarEmbedUrl = process.env.NEXT_PUBLIC_WEBINAR_EMBED_URL || 'htt
 // when we're not live. Paste the recording's /iframe URL here (env can override).
 // Leave '' to fall back to the auto "latest recording" API route.
 export const webinarReplayUrl = process.env.NEXT_PUBLIC_WEBINAR_REPLAY_URL || '';
-export const brandName = process.env.NEXT_PUBLIC_BRAND_NAME || 'Scott Smith';
+export const brandName = process.env.NEXT_PUBLIC_BRAND_NAME || 'Mary Vega';
 export const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'Move With Mary V';
 export const brandTagline = 'Know your home. Plan your next move.';
 
-export const fsboLandingUrl = process.env.NEXT_PUBLIC_FSBO_LANDING_URL || 'https://fsbo.smithapprovesme.com';
+export const fsboLandingUrl = process.env.NEXT_PUBLIC_FSBO_LANDING_URL || 'https://movewithmaryv.com';
 export const fsboGuideUrl = process.env.NEXT_PUBLIC_FSBO_GUIDE_URL || '#';
 
 export const dpaPrograms = [
-  {
-    state: 'Colorado',
-    county: 'General',
-    title: 'Colorado homebuyer assistance resources',
-    note: 'Colorado buyers may have access to state and local assistance options depending on loan type, income, location, and program availability.'
-  },
-  {
-    state: 'Colorado',
-    county: 'Denver Metro',
-    title: 'Metro-area assistance resources',
-    note: 'Some city and county programs may provide assistance, but rules can change. Always verify eligibility before making an offer.'
-  },
   {
     state: 'Arizona',
     county: 'General',
     title: 'Arizona homebuyer assistance resources',
     note: 'Arizona buyers may have access to state, county, or lender-specific options. Availability may vary by income, location, and loan program.'
+  },
+  {
+    state: 'Arizona',
+    county: 'Maricopa County / West Valley',
+    title: 'West Valley & Maricopa County assistance resources',
+    note: 'Some city and county programs may provide down payment help, but rules can change. Always verify eligibility before making an offer.'
   }
 ];
 

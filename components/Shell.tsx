@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { clearDemoUser, getDemoUser, getUserDisplayName, initializeUserFromUrl } from '@/lib/auth';
-import { BookOpen, CalendarCheck, ClipboardList, CreditCard, FileText, Home, Landmark, LogOut, Map, Menu, MessageCircle, Newspaper, ShieldCheck, Star, Users, Wrench, X } from 'lucide-react';
+import { BookOpen, CalendarCheck, ClipboardList, CreditCard, FileText, Home, Landmark, LogOut, Map, Menu, MessageCircle, Newspaper, PlayCircle, ShieldCheck, Star, Users, Wrench, X } from 'lucide-react';
 import { siteName, brandTagline, coBrandDisclosure } from '@/lib/content';
 import AssistantChat from '@/components/AssistantChat';
 import TestimonialTicker from '@/components/TestimonialTicker';
@@ -16,6 +16,7 @@ const nav = [
   { href: '/calculators', label: 'Tools', icon: Wrench },
   { href: '/credit', label: 'Credit Center', icon: CreditCard },
   { href: '/dpa', label: 'DPA', icon: Landmark },
+  { href: '/videos', label: 'Learn', icon: PlayCircle },
   { href: '/webinar', label: 'Webinar', icon: CalendarCheck },
   { href: '/testimonials', label: 'Reviews', icon: Star },
   { href: '/about', label: 'About Us', icon: Users },
@@ -55,7 +56,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
           </Link>
 
           <nav className="hidden items-center gap-7 lg:flex">
-            {nav.slice(0, 9).map((item) => {
+            {nav.slice(0, 10).map((item) => {
               const active = pathname === item.href || (item.href !== '/dashboard' && pathname.startsWith(item.href));
               return (
                 <Link

@@ -40,9 +40,9 @@ export default function ContactPage() {
         </div>
         <p className="mt-6 text-sm text-ice/65">
           Prefer to talk? Call or text{" "}
-          <a href="tel:+19705280874" className="font-bold text-gold hover:underline">(970) 528-0874</a>
+          <a href="tel:+16235704245" className="font-bold text-gold hover:underline">(623) 570-4245</a>
           {" "}&middot;{" "}
-          <a href="/scott-smith.vcf" download className="font-bold text-gold hover:underline">Save my contact</a>
+          <a href="/mary-vega.vcf" download className="font-bold text-gold hover:underline">Save my contact</a>
         </p>
       </div>
     </Shell>
