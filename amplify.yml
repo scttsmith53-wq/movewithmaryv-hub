@@ -1,0 +1,20 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm install --prefer-offline --no-audit --no-fund
+    build:
+      commands:
+        # Amplify SSR runtime doesn't see server-only env vars unless they're
+        # written into .env.production at build time (AWS-documented fix).
+        - env | grep -e SUPABASE_SERVICE_ROLE_KEY -e SUPABASE_URL -e SUPABASE_PUBLISHABLE_KEY -e GHL_PORTAL_EVENT_WEBHOOK_URL -e WEBINAR_ADMIN_EMAILS -e WEBINAR_EMBED_URL -e WEBINAR_REPLAY_URL -e CF_STREAM -e ANTHROPIC_API_KEY -e ANTHROPIC_MODEL >> .env.production || true
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - .next/cache/**/*
+      - node_modules/**/*
