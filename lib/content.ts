@@ -16,7 +16,7 @@ export const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'Move With Mary V';
 export const brandTagline = 'Know your home. Plan your next move.';
 
 export const fsboLandingUrl = process.env.NEXT_PUBLIC_FSBO_LANDING_URL || 'https://fsbo.smithapprovesme.com';
-export const fsboGuideUrl = process.env.NEXT_PUBLIC_FSBO_GUIDE_URL || '/resources/fsbo-seller-guide.pdf';
+export const fsboGuideUrl = process.env.NEXT_PUBLIC_FSBO_GUIDE_URL || '#';
 
 export const dpaPrograms = [
   {

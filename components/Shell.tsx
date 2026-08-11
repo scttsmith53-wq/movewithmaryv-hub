@@ -11,13 +11,11 @@ import TestimonialTicker from '@/components/TestimonialTicker';
 
 const nav = [
   { href: '/dashboard', label: 'My Journey', icon: Home },
-  { href: '/resources', label: 'Resource Library', icon: BookOpen },
   { href: '/readiness', label: 'Buyer Map', icon: Map },
   { href: '/my-numbers', label: 'My Numbers', icon: ClipboardList },
   { href: '/calculators', label: 'Tools', icon: Wrench },
   { href: '/credit', label: 'Credit Center', icon: CreditCard },
   { href: '/dpa', label: 'DPA', icon: Landmark },
-  { href: '/fsbo', label: 'FSBO', icon: FileText },
   { href: '/webinar', label: 'Webinar', icon: CalendarCheck },
   { href: '/testimonials', label: 'Reviews', icon: Star },
   { href: '/about', label: 'About Us', icon: Users },

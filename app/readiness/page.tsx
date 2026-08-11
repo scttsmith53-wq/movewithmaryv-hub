@@ -33,7 +33,7 @@ const journeyPages = [
         body: 'Review the roadmap and learn the homebuying path before you start comparing houses.',
         icon: BookOpen,
         actions: [
-          { label: 'View Roadmap', href: '/resources/buy-with-confidence-roadmap' },
+          { label: 'View Roadmap', href: '/dashboard' },
           { label: 'Watch Webinar', href: '/webinar' }
         ],
         current: false
@@ -73,7 +73,7 @@ const journeyPages = [
         body: 'Gather common documents and turn your information into a clear financing strategy.',
         icon: FileCheck2,
         actions: [
-          { label: 'Document Guide', href: '/resources/mortgage-document-guide' },
+          { label: 'Document Guide', href: '/dashboard' },
           { label: 'Book Strategy Call', href: bookingUrl, external: true }
         ],
         current: false
@@ -93,7 +93,7 @@ const journeyPages = [
         title: 'Start Shopping',
         body: 'Tour homes and compare options with a clearer picture of payment, timing, and next steps.',
         icon: Home,
-        actions: [{ label: 'Shopping Resources', href: '/resources/inspection-and-appraisal-guide' }],
+        actions: [{ label: 'Shopping Resources', href: '/dashboard' }],
         current: false
       },
       {
@@ -101,7 +101,7 @@ const journeyPages = [
         title: 'Make a Strong Offer',
         body: 'Use inspection, appraisal, negotiation, and contract resources to make smart decisions.',
         icon: Handshake,
-        actions: [{ label: 'Offer Resources', href: '/resources/inspection-and-appraisal-guide' }],
+        actions: [{ label: 'Offer Resources', href: '/dashboard' }],
         current: false
       }
     ]
