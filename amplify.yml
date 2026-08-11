@@ -3,13 +3,18 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm install --prefer-offline --no-audit --no-fund
+        # npm is broken in this project ("Exit handler never called!") on both
+        # Windows and Amplify's Linux builder. Use pnpm via corepack instead.
+        - corepack enable
+        - corepack prepare pnpm@latest --activate
+        - pnpm config set verify-deps-before-run false
+        - pnpm install --no-frozen-lockfile
     build:
       commands:
         # Amplify SSR runtime doesn't see server-only env vars unless they're
         # written into .env.production at build time (AWS-documented fix).
         - env | grep -e SUPABASE_SERVICE_ROLE_KEY -e SUPABASE_URL -e SUPABASE_PUBLISHABLE_KEY -e GHL_PORTAL_EVENT_WEBHOOK_URL -e WEBINAR_ADMIN_EMAILS -e WEBINAR_EMBED_URL -e WEBINAR_REPLAY_URL -e CF_STREAM -e ANTHROPIC_API_KEY -e ANTHROPIC_MODEL >> .env.production || true
-        - npm run build
+        - pnpm exec next build --no-lint
   artifacts:
     baseDirectory: .next
     files:

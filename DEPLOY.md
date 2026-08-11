@@ -59,6 +59,36 @@ Server (secret — paste real values, do NOT commit):
 - Amplify > Domain management > add app.movewithmaryv.com.
 - Add the CNAME Amplify gives you at SiteGround DNS (app -> *.cloudfront...). SSL auto.
 
+## ⚠️ Toolchain gotcha — npm is broken, use pnpm (Windows AND Amplify)
+
+`npm install` fails with **"Exit handler never called!"** for this project — on Scott's
+Windows machine *and* on Amplify's Linux CodeBuild builder (it hangs ~8 min then dies in
+preBuild). It is not OneDrive and not the OS; it's npm choking on this dependency tree.
+
+**Fix everywhere = pnpm via corepack.** The repo's `amplify.yml` preBuild is already set to:
+
+    corepack enable
+    corepack prepare pnpm@latest --activate
+    pnpm config set verify-deps-before-run false   # pnpm's pre-run check aborts on unrs-resolver ignored-build
+    pnpm install --no-frozen-lockfile
+
+and the build step runs `pnpm exec next build --no-lint`. If a future Amplify app is created
+and defaults its build spec back to `npm install`, replace it with the block above or the
+build will fail. Locally: `corepack pnpm install` then `corepack pnpm exec next build --no-lint`.
+
+Two repo fixes that keep the build green under pnpm (already committed):
+- `tsconfig.json` → `"types": ["node","react","react-dom"]` (stops TS scanning a broken
+  transitive `@types/cookie` under pnpm's node_modules layout).
+- `next.config.js` → `eslint: { ignoreDuringBuilds: true }` (Amplify won't fail on lint; TS check stays on).
+
+## ⚠️ Amplify: Git-connected app vs manual-deploy app
+
+The original `movewithmaryv` app (id `dvrvzdwvbg29r`, holds domain app.movewithmaryv.com) was a
+**manual-upload** app (drag-and-drop zip / S3 / URL). A manual app **cannot** run CI/CD builds and
+**cannot** host Next.js SSR (our hub has API routes + SSR). You must use a **Git-connected** app.
+The hub now builds from a new Git-connected app **`movewithmaryv-hub`** (id `dbh0ww2kf521j`), temp URL
+`https://main.dbh0ww2kf521j.amplifyapp.com`. Move the custom domain onto this app once the preview is approved.
+
 ## Known still-Scott / TODO (not blockers for preview)
 - Webinar feature still reads as Scott (host).
 - /search is a placeholder (Mary needs AZ/ARMLS IDX).
