@@ -9,7 +9,6 @@ frontend:
         # Pin pnpm 9.x — pnpm 10 (@latest) hard-fails in CI on ignored build
         # scripts (ERR_PNPM_IGNORED_BUILDS: unrs-resolver). pnpm 9 only warns.
         - corepack prepare pnpm@9.12.0 --activate
-        - pnpm config set verify-deps-before-run false
         - pnpm install --no-frozen-lockfile
     build:
       commands:
