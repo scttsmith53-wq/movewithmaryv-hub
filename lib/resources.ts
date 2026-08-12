@@ -10,8 +10,8 @@ export type ResourceItem = {
 };
 
 // Co-branded Arizona guides (Mary Vega, Keller Williams — agent · Scott Smith,
-// Citywide Home Mortgage — lender). Rebuilt Aug 2026 from the originals.
-// NOTE: fsbo-seller-guide is intentionally omitted until its Arizona rebuild is done.
+// Citywide Home Mortgage — lender). Rebuilt Aug 2026: Mary's ChatGPT cover on
+// page 1 + generated content pages behind it.
 export const resources: ResourceItem[] = [
   {
     slug: "buy-with-confidence-roadmap",
@@ -96,6 +96,15 @@ export const resources: ResourceItem[] = [
     stage: "Start Here",
     file: "/resources/buyer-confidence-resource-center.pdf",
     cover: "/resources/thumbs/buyer-confidence-resource-center.png",
+  },
+  {
+    slug: "fsbo-seller-guide",
+    title: "Sell With Confidence — FSBO Guide",
+    description: "A step-by-step FSBO roadmap for West Valley sellers: prep, pricing, offers, and closing.",
+    category: "Selling",
+    stage: "Selling",
+    file: "/resources/fsbo-seller-guide.pdf",
+    cover: "/resources/thumbs/fsbo-seller-guide.png",
   },
 ];
 
