@@ -32,9 +32,6 @@ function hasSupabaseSession(request: NextRequest) {
 export function middleware(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
 
-  if (pathname === '/') {
-    return NextResponse.rewrite(new URL('/mary-landing.html', request.url));
-  }
 
   if (!isProtectedPath(pathname)) {
     return NextResponse.next();
