@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { getSupabaseBrowserClient } from "@/lib/supabase/client";
 
 const SAVE_PHONE_URL =
@@ -13,6 +14,7 @@ const ADMIN_EMAILS = ["scottsmith53@yahoo.com", "scttsmith53@gmail.com"];
 // After a Google/passwordless sign-in we have the email but maybe not the phone.
 // If GHL has no phone for this member, ask once and save it to GHL.
 export default function PhoneGate() {
+  const pathname = usePathname();
   const [needsPhone, setNeedsPhone] = useState(false);
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -21,6 +23,7 @@ export default function PhoneGate() {
   const [err, setErr] = useState("");
 
   useEffect(() => {
+    if (pathname === "/") return;
     const supabase = (() => {
       try {
         return getSupabaseBrowserClient();
@@ -52,7 +55,7 @@ export default function PhoneGate() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [pathname]);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
