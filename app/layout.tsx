@@ -5,8 +5,8 @@ import AuthSync from '@/components/AuthSync';
 import PhoneGate from '@/components/PhoneGate';
 
 export const metadata: Metadata = {
-  title: 'Move With Mary V — Homeowner Hub',
-  description: 'Your co-branded homeowner hub — home value, sale proceeds, and next-move planning with Mary Vega (Keller Williams) and Scott Smith (Citywide Home Mortgage).'
+  title: 'Move With Mary V — Arizona Homebuyer Plan',
+  description: 'A clearer Arizona homebuying path with Mary Vega, Scott Smith, and Bryce Waite — real estate guidance, mortgage planning, and a secure loan application.'
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
